@@ -2,6 +2,26 @@
 
 Segment source for Postgresql Databases. Syncs your production postgressql databases with [Segment Objects API](https://github.com/segmentio/objects-go).
 
+So a `listings` table in the `products` schema that looks like this in your production Postgres...
+
+| Id  | Listing    | Cost  |
+| ----|:-----------:|:-----:|
+| 123 | 1 bedroom   | $100|
+| 345 | 2 bedroom   | $200|
+| 567 | 3 bedroom   | $300|
+
+would be queryable in your analytics Redshift or Postgres database like this...
+
+```select * from products.listings```
+
+> Redshift 
+
+| Id  | Listing    | Cost  |
+| ----|:-----------:|:-----:|
+| 123 | 1 bedroom   | $100|
+| 345 | 2 bedroom   | $200|
+| 567 | 3 bedroom   | $300|
+
 
 ## Quick Start
 
