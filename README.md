@@ -107,6 +107,3 @@ Options:
   --password=<password>       Database instance password
   --database=<database>       Database instance name
 ```
-
-### Schema
-
