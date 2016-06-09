@@ -2,7 +2,8 @@
 
 Segment source for Postgresql Databases. Syncs your production postgressql databases with [Segment Objects API](https://github.com/segmentio/objects-go).
 
-So a `listings` table in the `products` schema that looks like this in your production Postgres...
+### Schema
+A `listings` table in the `products` schema that looks like this in your production Postgres...
 
 | Id  | Listing    | Cost  |
 | ----|:-----------:|:-----:|
