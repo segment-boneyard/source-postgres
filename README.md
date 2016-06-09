@@ -13,7 +13,7 @@ A `listings` table in the `products` schema that looks like this in your product
 
 would be queryable in your analytics Redshift or Postgres database like this...
 
-```select * from products.listings```
+```select * from <source-name>.products_listings```
 
 > Redshift 
 
