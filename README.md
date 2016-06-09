@@ -1,4 +1,4 @@
-# SQL
+# Postgres Source
 
 Segment source for Postgresql Databases. Syncs your production postgressql databases with [Segment Objects API](https://github.com/segmentio/objects-go).
 
