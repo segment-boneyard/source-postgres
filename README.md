@@ -100,7 +100,6 @@ Options:
   -h --help                   Show this screen
   --version                   Show version
   --write-key=<key>           Segment source write key
-  --driver=<driver>           Choose the driver to use
   --concurrency=<c>           Number of concurrent table scans [default: 1]
   --hostname=<hostname>       Database instance hostname
   --port=<port>               Database instance port number
