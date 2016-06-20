@@ -8,7 +8,7 @@ import (
 	_ "github.com/jackc/pgx/stdlib"
 	"github.com/jmoiron/sqlx"
 	"github.com/segment-sources/sqlsource/domain"
-	"github.com/segment-sources/sqlsource/driver"
+	"github.com/segmentio/kit/log"
 )
 
 type tableDescriptionRow struct {
@@ -20,7 +20,7 @@ type tableDescriptionRow struct {
 }
 
 type Postgres struct {
-	driver.Base
+	Connection *sqlx.DB
 }
 
 func (p *Postgres) Init(c *domain.Config) error {
@@ -43,6 +43,13 @@ func (p *Postgres) Init(c *domain.Config) error {
 	p.Connection = db
 
 	return nil
+}
+
+func (p *Postgres) Scan(t *domain.Table) (*sqlx.Rows, error) {
+	query := fmt.Sprintf("SELECT %s FROM %q.%q", t.ColumnToSQL(), t.SchemaName, t.TableName)
+	log.Debugf("Executing query: %v", query)
+
+	return p.Connection.Queryx(query)
 }
 
 func (p *Postgres) Describe() (*domain.Description, error) {
