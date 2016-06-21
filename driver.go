@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/Sirupsen/logrus"
 	_ "github.com/jackc/pgx/stdlib"
 	"github.com/jmoiron/sqlx"
 	"github.com/segment-sources/sqlsource/domain"
-	"github.com/segmentio/kit/log"
 )
 
 type tableDescriptionRow struct {
@@ -47,7 +47,7 @@ func (p *Postgres) Init(c *domain.Config) error {
 
 func (p *Postgres) Scan(t *domain.Table) (*sqlx.Rows, error) {
 	query := fmt.Sprintf("SELECT %s FROM %q.%q", t.ColumnToSQL(), t.SchemaName, t.TableName)
-	log.Debugf("Executing query: %v", query)
+	logrus.Debugf("Executing query: %v", query)
 
 	return p.Connection.Queryx(query)
 }
