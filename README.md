@@ -26,6 +26,14 @@ would be queryable in your analytics Redshift or Postgres database like this...
 
 ## Quick Start
 
+### Docker
+
+If you're running docker in production, you can simply run this as a docker image:
+
+```
+$ docker run segment/postgres-source <your-options>
+```
+
 ### Build and Run
 Prerequisites: [Go](https://golang.org/doc/install)
 
