@@ -52,6 +52,10 @@ func (p *Postgres) Scan(t *domain.Table) (*sqlx.Rows, error) {
 	return p.Connection.Queryx(query)
 }
 
+func (p *Postgres) Transform(row map[string]interface{}) map[string]interface{} {
+	return row
+}
+
 func (p *Postgres) Describe() (*domain.Description, error) {
 	describeQuery := `
     with o_1 as (SELECT
