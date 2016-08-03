@@ -1,4 +1,4 @@
 build:
-    @godep go build
+	@godep go build
 
 .PHONY: build
