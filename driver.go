@@ -70,7 +70,7 @@ func (p *Postgres) Describe() (*domain.Description, error) {
       WHERE c.contype = 'p')
 
     select c.table_catalog, c.table_schema, c.table_name, c.column_name, CASE WHEN c.ordinal_position = ANY(o_1.column_positions) THEN true ELSE false END as "is_primary_key"
-        FROM o_1 LEFT JOIN information_schema.columns c
+        FROM o_1 INNER JOIN information_schema.columns c
             ON o_1.table_schema = c.table_schema
             AND o_1.table_name = c.table_name;
     `
