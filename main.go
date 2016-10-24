@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/Lilibuth12/sqlsource/driver"
 	"github.com/segment-sources/sqlsource"
+	"github.com/segment-sources/sqlsource/driver"
 )
 
 func main() {
