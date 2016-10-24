@@ -1,7 +1,10 @@
 package main
 
-import "github.com/segment-sources/sqlsource"
+import (
+	"github.com/Lilibuth12/sqlsource/driver"
+	"github.com/segment-sources/sqlsource"
+)
 
 func main() {
-	sqlsource.Run(&Postgres{})
+	sqlsource.Run(&driver.Postgres{})
 }
