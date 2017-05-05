@@ -1,6 +1,6 @@
 FROM golang:1.6
 
-RUN go get -u github.com/segment-sources/postgres
+RUN go get -u github.com/segment-sources/postgres/cmd/postgres
 
 # Additionally add a cron-like runner to run on an
 # interval.
