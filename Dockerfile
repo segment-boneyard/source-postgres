@@ -1,9 +1,9 @@
 FROM golang:1.6
 
-RUN go get -u github.com/segment-sources/postgres/cmd/postgres
+ADD . $GOPATH/src/github.com/segment-sources/postgres
 
-# Additionally add a cron-like runner to run on an
-# interval.
-RUN go get -u github.com/segmentio/go-every
+RUN go get "github.com/tools/godep"
+RUN cd $GOPATH/src/github.com/segment-sources/postgres \
+    && godep go install ./cmd/postgres
 
 ENTRYPOINT ["postgres"]
