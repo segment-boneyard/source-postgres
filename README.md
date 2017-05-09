@@ -30,7 +30,8 @@ would be queryable in your analytics Redshift or Postgres database like this...
 Prerequisites: [Go](https://golang.org/doc/install)
 
 ```bash
-go get -u github.com/segment-sources/postgres
+go get -u github.com/tools/godep
+godep go install github.com/segment-source/source-postgres/cmd/source-postgres
 ```
 
 The first step is to initialize your schema. You can do so by running `postgres` with `--init` flag.
