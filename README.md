@@ -31,12 +31,12 @@ Prerequisites: [Go](https://golang.org/doc/install)
 
 ```bash
 go get -u github.com/tools/godep
-godep go install github.com/segment-source/source-postgres/cmd/source-postgres
+godep go install github.com/segment-sources/source-postgres/cmd/source-postgres
 ```
 
-The first step is to initialize your schema. You can do so by running `postgres` with `--init` flag.
+The first step is to initialize your schema. You can do so by running `source-postgres` with `--init` flag.
 ```bash
-postgres --init --write-key=ab-200-1alx91kx --hostname=postgres-test.ksdg31bcms.us-west-2.rds.amazonaws.com --port=5432 --username=segment --password=cndgks8102baajls --database=segment -- sslmode=prefer
+source-postgres --init --write-key=ab-200-1alx91kx --hostname=postgres-test.ksdg31bcms.us-west-2.rds.amazonaws.com --port=5432 --username=segment --password=cndgks8102baajls --database=segment -- sslmode=prefer
 ```
 The init step will store the schema of possible tables that the source can sync in `schema.json`. The query will look for tables across all schemas excluding the ones without a `PRIMARY KEY`.
 
