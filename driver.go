@@ -9,7 +9,10 @@ import (
 	_ "github.com/jackc/pgx/stdlib"
 	"github.com/jmoiron/sqlx"
 	"github.com/segment-sources/sqlsource/domain"
+	"github.com/segment-sources/sqlsource/driver"
 )
+
+const chunkSize = 1000000
 
 type tableDescriptionRow struct {
 	Catalog    string `db:"table_catalog"`
@@ -45,11 +48,51 @@ func (p *Postgres) Init(c *domain.Config) error {
 	return nil
 }
 
-func (p *Postgres) Scan(t *domain.Table) (*sqlx.Rows, error) {
-	query := fmt.Sprintf("SELECT %s FROM %q.%q", t.ColumnToSQL(), t.SchemaName, t.TableName)
-	logrus.Debugf("Executing query: %v", query)
+func (p *Postgres) Scan(t *domain.Table, lastPkValues []interface{}) (driver.SqlRows, error) {
+	// in most cases whereClause will simply look like "id" > 114, but since the source supports compound PKs
+	// we must be able to include all PK columns in the query. For example, for a table with 3-column PK:
+	//	a | b | c
+	//	---+---+---
+	//	1 | 1 | 1
+	//	1 | 1 | 2
+	//	1 | 2 | 1
+	//	1 | 2 | 2
+	//	2 | 1 | 1
+	//
+	// whereClause selecting records after (1, 1, 1) should look like:
+	// a > 1 OR a = 1 AND b > 1 OR a = 1 AND b = 1 AND c > 1
+	whereClause := "true"
+	if len(lastPkValues) > 0 {
+		// {"a > 1", "a = 1 AND b > 1", "a = 1 AND b = 1 AND c > 1"}
+		whereOrList := []string{}
 
-	return p.Connection.Queryx(query)
+		for i, pk := range t.PrimaryKeys {
+			// {"a = 1", "b = 1", "c > 1"}
+			choiceAndList := []string{}
+			for j := 0; j < i; j++ {
+				choiceAndList = append(choiceAndList, fmt.Sprintf(`"%s" = $%d`, t.PrimaryKeys[j], j+1))
+			}
+			choiceAndList = append(choiceAndList, fmt.Sprintf(`"%s" > $%d`, pk, i+1))
+			whereOrList = append(whereOrList, strings.Join(choiceAndList, " AND "))
+		}
+		whereClause = strings.Join(whereOrList, " OR ")
+	}
+
+	orderByList := []string{}
+	for _, column := range t.PrimaryKeys {
+		orderByList = append(orderByList, fmt.Sprintf(`"%s"`, column))
+	}
+	orderByClause := strings.Join(orderByList, ", ")
+
+	query := fmt.Sprintf("SELECT %s FROM %q.%q WHERE %s ORDER BY %s LIMIT %d", t.ColumnToSQL(), t.SchemaName,
+		t.TableName, whereClause, orderByClause, chunkSize)
+
+	logger := logrus.WithFields(logrus.Fields{
+		"query": query,
+		"args": lastPkValues,
+	})
+	logger.Debugf("Executing query")
+	return p.Connection.Queryx(query, lastPkValues...)
 }
 
 func (p *Postgres) Transform(row map[string]interface{}) map[string]interface{} {
