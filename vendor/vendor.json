@@ -1,0 +1,107 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "yXrS4e4yxaRBu/MX+39X3cS4kbg=",
+			"comment": "v0.10.0-28-ga283a10",
+			"path": "github.com/Sirupsen/logrus",
+			"revision": "a283a10442df8dc09befd873fab202bf8a253d6a"
+		},
+		{
+			"checksumSHA1": "CDOphCxF7dup+hBBVRpFeQhM9Jw=",
+			"comment": "v4-12-g593d645",
+			"path": "github.com/asaskevich/govalidator",
+			"revision": "593d64559f7600f29581a3ee42177f5dbded27a9"
+		},
+		{
+			"checksumSHA1": "9NoxW1ZvnX4inGkH4SA9RW6rIgM=",
+			"comment": "v1.0.0-7-gcdf48bb",
+			"path": "github.com/cenkalti/backoff",
+			"revision": "cdf48bbc1eb78d1349cbda326a4a037f7ba565c6"
+		},
+		{
+			"checksumSHA1": "Fbo8UvcguA+5aM/aGGKHyjYNJxA=",
+			"comment": "v2.8.1-46-g1a4be31",
+			"path": "github.com/jackc/pgx",
+			"revision": "1a4be31e7a81f9a75da4d4d1142fa50613fdf602"
+		},
+		{
+			"checksumSHA1": "OJx8wJ6aUlQPJHXdsambXcrRD+o=",
+			"comment": "v2.8.1-46-g1a4be31",
+			"path": "github.com/jackc/pgx/stdlib",
+			"revision": "1a4be31e7a81f9a75da4d4d1142fa50613fdf602"
+		},
+		{
+			"checksumSHA1": "5I0G+0o3xHUQ53jlq70Ujrw0d2A=",
+			"comment": "sqlx-v1.1-73-g7396209",
+			"path": "github.com/jmoiron/sqlx",
+			"revision": "7396209bbeada6a4fcc28aa9408f89b2e71cac39"
+		},
+		{
+			"checksumSHA1": "NJHTyLwheqVk7+syzj9UN7p1dKs=",
+			"comment": "sqlx-v1.1-73-g7396209",
+			"path": "github.com/jmoiron/sqlx/reflectx",
+			"revision": "7396209bbeada6a4fcc28aa9408f89b2e71cac39"
+		},
+		{
+			"checksumSHA1": "3bkZqp6Om61rNTemGXP1DeM2lxo=",
+			"path": "github.com/segment-sources/sqlsource",
+			"revision": "656c8f1119c577ff2faa21e4610e3b6d4c4bae10",
+			"revisionTime": "2017-09-06T00:05:47Z"
+		},
+		{
+			"path": "github.com/segment-sources/sqlsource/base",
+			"revision": ""
+		},
+		{
+			"checksumSHA1": "6OGa65WV6gtgnK1Gj05zF5piCXs=",
+			"path": "github.com/segment-sources/sqlsource/domain",
+			"revision": "656c8f1119c577ff2faa21e4610e3b6d4c4bae10"
+		},
+		{
+			"checksumSHA1": "xRxFxv+xKesJcAR5XQ+amEWsvIY=",
+			"path": "github.com/segment-sources/sqlsource/driver",
+			"revision": "656c8f1119c577ff2faa21e4610e3b6d4c4bae10",
+			"revisionTime": "2017-09-06T00:05:47Z"
+		},
+		{
+			"checksumSHA1": "QVpE3E21QAE2UbJXBHJyDXwCSjo=",
+			"path": "github.com/segmentio/go-snakecase",
+			"revision": "45c439a7815bbb735c7e000cbb73360d5f034fb9"
+		},
+		{
+			"checksumSHA1": "hapmu4XltAdBymfHaFBx2BYDbU8=",
+			"comment": "v1.0.0-17-ge912c9f",
+			"path": "github.com/segmentio/go-tableize",
+			"revision": "e912c9fa0f246f2c5c7c46d36813727288b77846"
+		},
+		{
+			"checksumSHA1": "oRI9X5FRjMA0AJZfTASb9RnQExI=",
+			"path": "github.com/segmentio/objects-go",
+			"revision": "b2e5035168d6e1b1f0187d799f2f62a9167189af"
+		},
+		{
+			"checksumSHA1": "LfLTyk4ox5wH0YL4sD5rcbrVWBw=",
+			"comment": "v1.0.0",
+			"path": "github.com/tj/docopt",
+			"revision": "c8470e45692f168e8b380c5d625327e756d7d0a9"
+		},
+		{
+			"checksumSHA1": "vTMNlSkytg8eVMjhTHQd5GMScdQ=",
+			"path": "github.com/tj/go-sync/semaphore",
+			"revision": "8448302468e84b34d4b949808dd5874149be15d1"
+		},
+		{
+			"checksumSHA1": "FabjX8CIwjHaz5+VYUjw8wXONeY=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "b4e289961544fc90f340c908c3460ceae6a2202a"
+		},
+		{
+			"checksumSHA1": "jXDje+kqCATfVXkT6fCZA14Sd6g=",
+			"path": "gopkg.in/validator.v2",
+			"revision": "3e4f037f12a1221a0864cf0dd2e81c452ab22448"
+		}
+	],
+	"rootPath": "github.com/segment-sources/source-postgres"
+}
