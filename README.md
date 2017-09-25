@@ -27,7 +27,7 @@ would be queryable in your analytics Redshift or Postgres database like this...
 ## Quick Start
 
 ### Build and Run
-Prerequisites: [Go](https://golang.org/doc/install)
+Prerequisites: [Go >= 1.7](https://golang.org/doc/install)
 
 ```bash
 go get -u github.com/segment-sources/source-postgres/cmd/source-postgres/
