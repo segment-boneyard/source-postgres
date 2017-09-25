@@ -40,15 +40,15 @@
 		},
 		{
 			"ImportPath": "github.com/segment-sources/sqlsource",
-			"Rev": "6ed15eecc75a63844d34266d196748b0471ce1f9"
+			"Rev": "656c8f1119c577ff2faa21e4610e3b6d4c4bae10"
 		},
 		{
 			"ImportPath": "github.com/segment-sources/sqlsource/domain",
-			"Rev": "6ed15eecc75a63844d34266d196748b0471ce1f9"
+			"Rev": "656c8f1119c577ff2faa21e4610e3b6d4c4bae10"
 		},
 		{
 			"ImportPath": "github.com/segment-sources/sqlsource/driver",
-			"Rev": "6ed15eecc75a63844d34266d196748b0471ce1f9"
+			"Rev": "656c8f1119c577ff2faa21e4610e3b6d4c4bae10"
 		},
 		{
 			"ImportPath": "github.com/segmentio/go-snakecase",
