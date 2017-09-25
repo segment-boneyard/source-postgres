@@ -31,7 +31,11 @@ Prerequisites: [Go](https://golang.org/doc/install)
 
 ```bash
 go get -u github.com/tools/godep
-godep go install github.com/segment-source/source-postgres/cmd/source-postgres
+mkdir -p $GOPATH/src/github.com/segment-sources
+cd $GOPATH/src/github.com/segment-sources
+git clone https://github.com/segment-sources/source-postgres.git
+cd source-postgres
+godep go install ./cmd/source-postgres
 ```
 
 The first step is to initialize your schema. You can do so by running `postgres` with `--init` flag.
