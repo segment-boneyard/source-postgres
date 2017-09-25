@@ -78,7 +78,7 @@ func (p *Postgres) Scan(t *domain.Table, lastPkValues []interface{}) (driver.Sql
 		whereClause = strings.Join(whereOrList, " OR ")
 	}
 
-	orderByList := []string{}
+	orderByList := make([]string, 0, len(t.PrimaryKeys))
 	for _, column := range t.PrimaryKeys {
 		orderByList = append(orderByList, fmt.Sprintf(`"%s"`, column))
 	}
