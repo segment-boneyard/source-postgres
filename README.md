@@ -1,5 +1,7 @@
 # Postgres Source
 
+**This source is no longer actively maintained, and is only available as-is**
+
 Segment source for Postgresql Databases. Syncs your production postgres database with [Segment Objects API](https://github.com/segmentio/objects-go).
 
 ### Schema
